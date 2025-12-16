@@ -1,0 +1,118 @@
+:root {
+    color-scheme: light dark;
+
+    --surface: light-dark(oklch(100% 0 0),
+            oklch(12% 0 0));
+
+    --on-surface: light-dark(oklch(12% 0 0),
+            oklch(98% 0 0));
+
+    --main-clr: oklch(0.5579 0.1453 152.45);
+    --danger-clr: oklch(0.655 0.2362 13.45);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--surface);
+    color: oklch(from var(--on-surface) l c h / 0.85);
+    font-family: system-ui, sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 470px;
+    margin-inline: auto;
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.auth-card {
+    background: oklch(from var(--on-surface) l c h / 0.03);
+    border-radius: 20px;
+    padding: 1.3rem;
+    /* display: grid; */
+    gap: 1rem;
+}
+
+.auth-card a {
+    color: var(--main-clr);
+    text-decoration: none;
+}
+
+input#code {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Indicadores */
+.code-visual {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.code-visual span {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: oklch(from var(--on-surface) l c h / 0.25);
+    transition: background-color 0.2s ease;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid oklch(from var(--main-clr) l c h / 0.15);
+}
+
+/* Keypad */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    padding: 1.7rem;
+}
+
+.keypad button {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid oklch(from var(--on-surface) l c h / 0.25);
+    background: transparent;
+    font: inherit;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.keypad button:hover {
+    background: oklch(from var(--main-clr) l c h / 0.1);
+}
+
+.keypad button:active {
+    background: oklch(from var(--main-clr) l c h / 0.15);
+    border-color: var(--main-clr);
+}
+
+/* El color lo controlamos desde JS usando variables del sistema. */
+.codestatus {
+    /* Reserva espacio SIEMPRE  no funciona la clase*/
+    /* background-color: lightcyan; */
+    /* margin: 0 auto; */
+    min-height: 1.4rem;
+    text-align: center;
+}
+
+/* Mensaje visible */
+.code-status[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+}

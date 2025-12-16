@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ingreso por código</title>
+    <link rel="stylesheet" href="PIN - OTP.css" />
+</head>
+
+<body>
+    <main class="container">
+
+        <section class="auth-card">
+            <h1>Ingresar</h1>
+            <p>
+                ¿No tienes cuenta?
+                <a href="#">Regístrate</a>
+            </p>
+
+            <!-- Input REAL pero visualmente oculto -->
+            <!-- <input id="code" type="password" inputmode="numeric" maxlength="6" autocomplete="one-time-code"
+                aria-label="Código de acceso" /> -->
+            <form autocomplete="off">
+                <input id="code" type="password" inputmode="numeric" maxlength="6" autocomplete="one-time-code"
+                    aria-label="Código de acceso" />
+            </form>
+
+            <!-- Indicadores visuales -->
+            <div class="code-visual">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+
+            <!-- contenedor de estado debajo de los dots. aria-live="polite" permite que lectores de pantalla anuncien el mensaje sin interrumpir. -->
+            <div class="codestatus">
+
+                <small id="code-status" class="code-status" role="status" aria-live="polite"></small>
+            </div>
+
+            <!-- Keypad -->
+            <div class="keypad">
+                <button data-key="1">1</button>
+                <button data-key="2">2</button>
+                <button data-key="3">3</button>
+                <button data-key="4">4</button>
+                <button data-key="5">5</button>
+                <button data-key="6">6</button>
+                <button data-key="7">7</button>
+                <button data-key="8">8</button>
+                <button data-key="9">9</button>
+                <span></span>
+                <button data-key="0">0</button>
+                <button data-action="delete">⌫</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="PIN - OTP.js"></script>
+</body>
+
+</html>
