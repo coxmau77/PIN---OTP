@@ -17,11 +17,23 @@
     box-sizing: border-box;
 }
 
+html {
+    /* font-size: 100%; */
+    font-size: clamp(100%, 1vw + 0.8rem, 112.5%);
+}
+
 body {
     margin: 0;
     background: var(--surface);
     color: oklch(from var(--on-surface) l c h / 0.85);
     font-family: system-ui, sans-serif;
+}
+
+input,
+button,
+select,
+textarea {
+    font-size: max(1rem, 16px);
 }
 
 .container {
